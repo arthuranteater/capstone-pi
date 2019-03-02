@@ -21,7 +21,7 @@ def decode(coord):
 def getLoc():
 
     port = "/dev/serial0"
-    ser = serial.Serial(port, baudrate = 9600)
+    ser = serial.Serial(port, baudrate = 9600, timeout=1)
     location = 0
 
     while location == 0:
@@ -30,7 +30,6 @@ def getLoc():
         except:
             print "no data received"
             return
-            
         for line in data.split('\n'):
             if line.startswith( '$GPGGA' ):
                 location = 1
@@ -61,7 +60,7 @@ def getLoc():
                 except:
                     print "no lat or long"
                     return
-                
+         
 def main():
     
     name = "Hunt"
@@ -88,7 +87,4 @@ def main():
 if __name__ == '__main__':
     main()
  
-
-
-
 

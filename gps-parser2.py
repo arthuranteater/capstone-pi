@@ -64,8 +64,8 @@ def getLoc():
                 
 def main():
     
-    name = "Hunt"
-    key = "8HYNWM36KSMPKB6V"
+    name = ""
+    key = ""
 
     print 'Initiating...'
 
@@ -88,6 +88,8 @@ def main():
 if __name__ == '__main__':
     main()
  
+
+
 
 
 
