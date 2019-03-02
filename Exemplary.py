@@ -15,10 +15,16 @@ def parseGPS(data):
         time = s[1][0:2] + ":" + s[1][2:4] + ":" + s[1][4:6]
         lat = decode(s[2])
         dirLat = s[3]
+        negLat = ""
+        if dirLat == "S":
+            negLat = "-"
         lon = decode(s[4])
         dirLon = s[5]
+        negLon = ""
+        if dirLon == "W":
+            negLon = "-"
         sat = s[7]
-        print "Time(UTC): %s-- Latitude: %s(%s)-- Longitude:%s(%s)--(%s satellites)" %(time, lat, dirLat, lon, dirLon, sat) 
+        print "Time(UTC): %s-- Latitude:%s%s(%s)-- Longitude:%s%s(%s)--(%s satellites)" %(time, negLat, lat, dirLat, negLon, lon, dirLon, sat) 
 
 def decode(coord):
     # DDDMM.MMMMM -> DD deg MM.MMMMM min
